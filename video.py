@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_player import st_player
 
 def main():
     # Custom CSS for styling
@@ -44,10 +45,20 @@ def main():
 
     # Video options
     video_options = {
-        "Video 1": "https://shivangrustagi04.wixsite.com/crickethub/post/sample-1",
-        "Video 2": "https://shivangrustagi04.wixsite.com/crickethub/post/sample-2",
-        "Video 3": "https://shivangrustagi04.wixsite.com/crickethub/post/sample-3",
+        'video_path1': "C:\\Users\\shiva\\OneDrive\\Desktop\\ShivangRustagi_Submission\\sample 1.mp4",
+        'video_path2': "C:\\Users\\shiva\\OneDrive\\Desktop\\ShivangRustagi_Submission\\sample 2.mp4",
+        'video_path3': "C:\\Users\\shiva\\OneDrive\\Desktop\\ShivangRustagi_Submission\\sample 3.mp4",
     }
+
+    # Use st_player for each video
+    player1 = st_player(video_options['video_path1'])
+    player2 = st_player(video_options['video_path2'])
+    player3 = st_player(video_options['video_path3'])
+
+    # Display video players
+    st.write(player1)
+    st.write(player2)
+    st.write(player3)
 
     # User selects a video
     selected_video = st.selectbox("Select a video", list(video_options.keys()))
