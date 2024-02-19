@@ -52,9 +52,8 @@ def main():
     # User selects a video
     selected_video = st.selectbox("Select a video", list(video_options.keys()))
 
-    # Display the selected video using iframe
-    video_embed_code = f'<iframe src="{video_options[selected_video]}" width="100%" height="500" frameborder="0" allowfullscreen></iframe>'
-    st.markdown(f'<div class="video-container">{video_embed_code}</div>', unsafe_allow_html=True)
+    # Display the selected video using st.video
+    st.video(video_options[selected_video], format="video/mp4", start_time=0)
 
     # End main container
     st.markdown('</div>', unsafe_allow_html=True)
